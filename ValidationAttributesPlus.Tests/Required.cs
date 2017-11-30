@@ -6,18 +6,20 @@ using Shouldly;
 
 namespace ValidationAttributesPlus.Tests
 {
-  public class Model
-  {
-    [RequiredIfNotEmpty("SecondPropertyName")]
-    public string FirstPropertyName { get; set; }
 
-    [RequiredIfNotEmpty("FirstPropertyName")]
-    public string SecondPropertyName { get; set; }
-  }
 
   [TestClass]
   public class Required
   {
+    private class Model
+    {
+      [RequiredIfNotEmpty("SecondPropertyName")]
+      public string FirstPropertyName { get; set; }
+
+      [RequiredIfNotEmpty("FirstPropertyName")]
+      public string SecondPropertyName { get; set; }
+    }
+
     [TestMethod]
     public void RequiredIfEmpty()
     {
